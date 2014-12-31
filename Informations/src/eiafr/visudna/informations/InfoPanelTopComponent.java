@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eiafr.visudna.plugin;
+package eiafr.visudna.informations;
 
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
@@ -15,34 +15,34 @@ import org.openide.util.NbBundle.Messages;
  * Top component which displays something.
  */
 @ConvertAsProperties(
-        dtd = "-//eiafr.visudna.plugin//MyPanel//EN",
+        dtd = "-//eiafr.visudna.informations//InfoPanel//EN",
         autostore = false
 )
 @TopComponent.Description(
-        preferredID = "MyPanelTopComponent",
+        preferredID = "InfoPanelTopComponent",
         //iconBase="SET/PATH/TO/ICON/HERE", 
         persistenceType = TopComponent.PERSISTENCE_ALWAYS
 )
-@TopComponent.Registration(mode = "rankingmode", openAtStartup = true)
-@ActionID(category = "Window", id = "eiafr.visudna.plugin.MyPanelTopComponent")
+@TopComponent.Registration(mode = "rankingmode", openAtStartup = false)
+@ActionID(category = "Window", id = "eiafr.visudna.informations.InfoPanelTopComponent")
 @ActionReference(path = "Menu/Window" /*, position = 333 */)
 @TopComponent.OpenActionRegistration(
-        displayName = "#CTL_MyPanelAction",
-        preferredID = "MyPanelTopComponent"
+        displayName = "#CTL_InfoPanelAction",
+        preferredID = "InfoPanelTopComponent"
 )
 @Messages({
-    "CTL_MyPanelAction=MyPanel",
-    "CTL_MyPanelTopComponent=MyPanel Window",
-    "HINT_MyPanelTopComponent=This is a MyPanel window"
+    "CTL_InfoPanelAction=InfoPanel",
+    "CTL_InfoPanelTopComponent=InfoPanel Window",
+    "HINT_InfoPanelTopComponent=This is a InfoPanel window"
 })
-public final class MyPanelTopComponent extends TopComponent {
+public final class InfoPanelTopComponent extends TopComponent {
 
-    public MyPanelTopComponent() {
+    public InfoPanelTopComponent() {
         initComponents();
-        setName(Bundle.CTL_MyPanelTopComponent());
-        setToolTipText(Bundle.HINT_MyPanelTopComponent());
+        setName(Bundle.CTL_InfoPanelTopComponent());
+        setToolTipText(Bundle.HINT_InfoPanelTopComponent());
         putClientProperty(TopComponent.PROP_MAXIMIZATION_DISABLED, Boolean.TRUE);
-        putClientProperty(TopComponent.PROP_UNDOCKING_DISABLED, Boolean.TRUE);
+        putClientProperty(TopComponent.PROP_SLIDING_DISABLED, Boolean.TRUE);
 
     }
 
@@ -54,45 +54,28 @@ public final class MyPanelTopComponent extends TopComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        infoPanel1 = new eiafr.visudna.plugin.InfoPanel();
-
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(MyPanelTopComponent.class, "MyPanelTopComponent.jButton1.text")); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        infoPanelSub1 = new eiafr.visudna.informations.InfoPanelSub();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(infoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addGap(108, 108, 108)
+                .addComponent(infoPanelSub1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(200, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(infoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addGap(106, 106, 106)
+                .addComponent(infoPanelSub1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        infoPanel1.displayInfos();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private eiafr.visudna.plugin.InfoPanel infoPanel1;
-    private javax.swing.JButton jButton1;
+    private eiafr.visudna.informations.InfoPanelSub infoPanelSub1;
     // End of variables declaration//GEN-END:variables
     @Override
     public void componentOpened() {

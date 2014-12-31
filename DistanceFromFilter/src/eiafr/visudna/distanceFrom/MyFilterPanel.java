@@ -5,7 +5,6 @@
  */
 package eiafr.visudna.distanceFrom;
 
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
@@ -19,7 +18,7 @@ import org.gephi.filters.spi.FilterProperty;
  *
  * @author maria
  */
-public class MyFilterPanel extends JPanel implements DocumentListener { //ActionListener {
+public class MyFilterPanel extends JPanel implements DocumentListener {
  
     private MyFilter filter;
     private JTextField geneNameField;
@@ -72,6 +71,12 @@ public class MyFilterPanel extends JPanel implements DocumentListener { //Action
         geneName.setValue(geneNameField.getText());
         
         FilterProperty distance = filter.getProperties()[1];
-        distance.setValue(Integer.parseInt(distanceFiled.getText()));
+        int newDist = 0;
+        try {
+            newDist =  Integer.parseInt(distanceFiled.getText());   
+        } catch (Exception e) {
+            System.err.println("Invalid distance value");
+        }
+        distance.setValue(newDist);
     }
 }
