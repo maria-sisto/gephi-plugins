@@ -124,7 +124,11 @@ public class MyFilter implements NodeFilter {
         if (nodeName.equals("")) return true;
         String name = (String) getNodeAttr(node, "name");
         
-        return this.nodeName.equals(name) || (nodesDistance.get((String) getNodeAttr(node, "name")).depth <= distance);
+        if (nodesDistance.containsKey(name)) { // We have to test this since the graph is disjoint
+            return this.nodeName.equals(name) || (nodesDistance.get(name).depth <= distance);
+        }
+
+        return false;
     }
 
     @Override
